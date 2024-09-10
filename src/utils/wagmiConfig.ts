@@ -18,7 +18,7 @@ export function getConfig() {
       storage: cookieStorage,
     }),
     transports: {
-      [mainnet.id]: http(),
+      [mainnet.id]: https://eth-sepolia.public.blastapi.io/
       [sepolia.id]: http('https://eth-sepolia.public.blastapi.io/'),
     },
   })
@@ -27,7 +27,7 @@ export function getConfig() {
 export const config = createConfig({
   chains: [mainnet, sepolia],
   transports: {
-    [mainnet.id]: http(''),
+    [mainnet.id]: http('https://eth-sepolia.public.blastapi.io/'),
     [sepolia.id]: http('https://eth-sepolia.public.blastapi.io/'),
   },
 });
