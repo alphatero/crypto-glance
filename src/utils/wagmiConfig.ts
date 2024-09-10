@@ -18,7 +18,7 @@ export function getConfig() {
       storage: cookieStorage,
     }),
     transports: {
-      [mainnet.id]: https://eth-sepolia.public.blastapi.io/
+      [mainnet.id]: http('https://eth-sepolia.public.blastapi.io/'),
       [sepolia.id]: http('https://eth-sepolia.public.blastapi.io/'),
     },
   })
