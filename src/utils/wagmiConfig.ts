@@ -13,13 +13,13 @@ export function getConfig() {
        safe(),
      ],
     chains: [mainnet, sepolia],
-    ssr: true,
+    ssr: false,
     storage: createStorage({
       storage: cookieStorage,
     }),
     transports: {
       [mainnet.id]: http(),
-      [sepolia.id]: http('https://eth-sepolia.public.blastapi.io/'),
+      [sepolia.id]: http(process.env.RPC_URL || 'https://eth-sepolia.public.blastapi.io/'),
     },
   })
 }
@@ -28,6 +28,8 @@ export const config = createConfig({
   chains: [mainnet, sepolia],
   transports: {
     [mainnet.id]: http(''),
-    [sepolia.id]: http('https://eth-sepolia.public.blastapi.io/'),
+    [sepolia.id]: http(
+      process.env.RPC_URL || 'https://eth-sepolia.public.blastapi.io/'
+    ),
   },
 });
