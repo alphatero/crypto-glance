@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Providers } from './providers';
+import { headers } from 'next/headers';
+import { cookieToInitialState } from 'wagmi';
+import { getConfig } from '@/utils/wagmiConfig';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,9 +19,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialState = cookieToInitialState(
+    getConfig(),
+    headers().get('cookie'),
+  );
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={inter.className}>
+        <Providers initialState={initialState}>{children}</Providers>
+      </body>
     </html>
   );
 }
