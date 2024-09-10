@@ -1,6 +1,7 @@
 'use client'
 import { useBalance } from "wagmi"
 import { tokensIds, Tokens, tokens } from "@/constants/tokens";
+import { config } from "@/utils/wagmiConfig";
 
 type Address = `0x${string}` | undefined;
 
@@ -14,6 +15,7 @@ export const useBalances = (address: Address) => {
   const balanceUsdt = useBalance({
     address,
     token: tokens[Tokens.usdt].address,
+    config
   });
   console.log('balanceUsdt', balanceUsdt);
   const balanceLink = useBalance({
