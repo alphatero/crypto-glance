@@ -40,3 +40,8 @@
 - ESlint
 - Axios
 - React Chart.js
+
+## Web3 相關
+
+- 可透過 MetaMask 連接錢包
+- 可查看錢包目前支援幣種資產及 USD 分配圓餅圖
