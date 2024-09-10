@@ -17,7 +17,7 @@ export const useBalances = (address: Address) => {
     token: tokens[Tokens.usdt].address,
     config
   });
-  console.log('balanceUsdt', balanceUsdt);
+
   const balanceLink = useBalance({
     address,
     token: tokens[Tokens.link].address,
